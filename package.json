@@ -6,6 +6,9 @@
   "scripts": {
     "test": "jest",
     "start": "node index.js",
+    "dev": "nodemon index.js",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "cy:run": "npx wait-on http://localhost:3000 && npx cypress run",
     "test:cypress": "concurrently -k -s first -n SERVER,TESTS \"npm:start\" \"npm:cy:run\""
   },
