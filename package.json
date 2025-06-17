@@ -4,6 +4,7 @@
   "description": "Sistema web para gerenciamento de cartelas de bingo",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "start": "node index.js",
     "cy:run": "npx wait-on http://localhost:3000 && npx cypress run",
     "test:cypress": "concurrently -k -s first -n SERVER,TESTS \"npm:start\" \"npm:cy:run\""
