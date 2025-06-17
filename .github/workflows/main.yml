@@ -1,0 +1,48 @@
+name: CI
+
+on: [pull_request, push]
+
+jobs:
+  continuos-integrations:
+    runs-on: windows-lates
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          DB_HOST: localhost
+          DB_USER: root
+          DB_PASS: root
+          DB_NAME: db
+          SESSION_SECRET: root
+        ports:
+         - 8080
+
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -u root -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Using Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.
+      - name: run install
+        run: |
+          npm install
+      - name: waiting MySQL
+        run: |
+          echo "Aguardando MySQL"
+          sleep 20
+      - name: run npx
+        run: |
+          npx sequelize db:create
+          npx sequelize db:migrate
+          npx sequelize db:seed:all
+      - name: run test
+        run: |
+          npm run test
+           
