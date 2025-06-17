@@ -47,6 +47,14 @@ jobs:
           npx sequelize db:migrate
           npx sequelize db:seed:all
 
+      - name: Run Jest tests
+        env:
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASS: root
+          DB_NAME: db
+        run: npm test
+
       - name: Start app in background
         run: npm start &
         env:
