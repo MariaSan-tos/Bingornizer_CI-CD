@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "u47_P36jpgNR8h",
+    "password": "bw@^JokoPyuIOvE7a..ZMdfp",
+    "database": "s47_bingo",
+    "host": "144.22.175.68",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

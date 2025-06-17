@@ -1,0 +1,18 @@
+<%- include('partials/head.ejs') %>
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <form action="/user/login" method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">Digite seu email: </label>
+            <input type="email" name="email" id="email" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Digite a senha: </label>
+            <input type="text" name="password" id="password" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</body>
+</html>

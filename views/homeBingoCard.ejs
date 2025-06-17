@@ -1,0 +1,112 @@
+<%- include('partials/head.ejs') %>
+
+
+    <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+        <% if (existingBingoCards) { %>
+            <% existingBingoCards.forEach(bingoCard=> { %>
+                <div class="container text-center">
+                    <div class="row row-cols-3 row-cols-lg-5 g-5 g-lg-3">
+                        <div class="col border">
+                            <div class="p-3">B</div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3">I</div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3">N</div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3">G</div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3">O</div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3"><%= bingoCard.position_1 %></div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3"><%= bingoCard.position_2 %></div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3"><%= bingoCard.position_3 %></div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3"><%= bingoCard.position_4 %></div>
+                        </div>
+                        <div class="col border">
+                            <div class="p-3"><%= bingoCard.position_5 %></div>
+                        </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_6 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_7 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_8 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_9 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_10 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_11 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_12 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3">BINGO</div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_14 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_15 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_16 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_17 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_18 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_19 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_20 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_21 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_22 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_23 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_24 %></div>
+                            </div>
+                            <div class="col border">
+                                <div class="p-3"><%= bingoCard.position_25 %></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="/bingoCard/editBingoCard?bingoId=<%= bingoCard.id %>" class="btn btn-primary">Editar</a>
+                    <form action="/bingoCard?_method=DELETE&bingoId=<%= bingoCard.id %>&idEvent=<%= bingoCard.idEvent %>" method="post">
+                        <button type="submit" class="btn btn-primary">Apagar</button>
+                    </form>
+                    <% }) %>
+                        <%} else { %>
+                            <p>Sem cartelas nesse evento</p>
+                            <% } %>
+    </body>
+
+    </html>

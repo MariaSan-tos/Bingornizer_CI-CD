@@ -1,0 +1,25 @@
+<%- include('partials/head.ejs') %>
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <form action="/user/?_method=PATCH" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Digite seu username: </label>
+            <input class="form-control" type="text" name="username" id="username" required value="<%= existingUser.username %>">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Digite seu email: </label>
+            <input type="email" name="email" class="form-control" id="email" value="<%= existingUser.email %>">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Digite a senha: </label>
+            <input type="text" name="password" id="password" class="form-control" value="<%= existingUser.password %>">
+        </div>
+
+        <button class="btn btn-primary" type="submit">salvar</button>
+        <br><br>
+    </form>
+    <form action="/user?_method=DELETE" method="post">
+        <button type="submit" class="btn btn-primary">Apagar</button>
+    </form>
+</body>
+</html>

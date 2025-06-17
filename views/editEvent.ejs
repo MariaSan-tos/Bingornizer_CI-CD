@@ -1,0 +1,21 @@
+<%- include('partials/head.ejs') %>
+
+<body class="p-5 m-0 border-0 bd-example m-0 border-0"></body>
+    <form action="/event?_method=PATCH&idEvent=<%= existingEvents.id %>" method="post">
+        <div class="mb-3">
+        <label for="description">Descrição do evento: </label>
+        <input type="text" name="description" id="description" class="form-control" value="<%= existingEvents.description %>">
+    </div>
+    <div class="mb-3">
+        <label for="date">Data do evento: </label>
+        <input type="date" name="date" id="date" class="form-control" value="<% existingEvents.date %>">
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary ">Salvar</button>
+    </form>
+</div>
+    <form action="/event?_method=DELETE&idEvent=<%= existingEvents.id %>" method="post">
+        <button type="submit" class="btn btn-primary">Deletar Evento</button>
+    </form>
+</body>
+</html>
