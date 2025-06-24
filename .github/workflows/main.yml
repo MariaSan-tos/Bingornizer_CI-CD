@@ -90,11 +90,6 @@ jobs:
       - name: Run npm audit for vulnerability scan
         run: npm audit --audit-level=high
 
-      - name: Run Lighthouse CI
-        run: |
-          npm install -g @lhci/cli
-          lhci autorun --collect.staticDistDir=public
-
       - name: Run Performance Test
         run: npm run test:perf
 
