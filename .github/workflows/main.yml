@@ -22,11 +22,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/upload-artifact@v4
-        with:
-          name: performance-report
-          path: reports/perf.html
-
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -84,6 +79,12 @@ jobs:
         continue-on-error: true
         run: npm run cypress:run
 
+      - name: Upload Cypress HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-report
+          path: cypress/reports
+
       - name: Run Performance Test with Artillery
         run: npm run load:test
 
@@ -92,9 +93,6 @@ jobs:
 
       - name: Run Performance Test
         run: npm run test:perf
-
-      - name: Run Soak Test
-        run: npm run test:soak
 
       - name: Run Stress Test
         run: npm run test:stress
@@ -108,3 +106,17 @@ jobs:
       - name: Generate Performance HTML Report
         run: npm run report:perf
 
+      - name: Run Soak Test
+        run: npm run test:soak
+
+      - name: Ensure reports directory exists
+        run: mkdir -p reports
+
+      - name: Generate Performance HTML Report
+        run: npm run report:perf
+
+      - name: Upload Artillery HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: artillery-perf-report
+          path: reports/perf.html

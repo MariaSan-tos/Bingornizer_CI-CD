@@ -17,7 +17,7 @@
     "test:stress": "artillery run artillery/load-test-stress.yml",
     "test:auth": "artillery run artillery/load-test-auth.yml",
     "test:auth:post": "artillery run artillery/load-test-auth-post-bingo.yml",
-    "report:perf": "artillery run artillery/load-test-performance.yml -o reports/perf.json && artillery-plugin-html-report --input reports/perf.json --output reports/perf.html"
+    "report:perf": "artillery run artillery/load-test-performance.yml -o reports/perf.json && npx artillery html reports/perf.json --output reports/perf.html"
   },
   "author": "Getulio Lima e Nicolas Felipe",
   "license": "ISC",
