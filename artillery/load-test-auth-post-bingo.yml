@@ -1,0 +1,48 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+  processor: "./artillery/loginProcessor.js"
+  plugins:
+    cookie: {}
+
+scenarios:
+  - name: Login e criação de cartelas
+    flow:
+      - post:
+          url: "/user/login"
+          headers:
+            content-type: "application/x-www-form-urlencoded"
+          form:
+            email: "{{ email }}"
+            password: "{{ password }}"
+      - post:
+          url: "/bingoCard?idEvent=1"
+          headers:
+            content-type: "application/x-www-form-urlencoded"
+          form:
+            position_1: 1
+            position_2: 2
+            position_3: 3
+            position_4: 4
+            position_5: 5
+            position_6: 6
+            position_7: 7
+            position_8: 8
+            position_9: 9
+            position_10: 10
+            position_11: 11
+            position_12: 12
+            position_14: 14
+            position_15: 15
+            position_16: 16
+            position_17: 17
+            position_18: 18
+            position_19: 19
+            position_20: 20
+            position_21: 21
+            position_22: 22
+            position_23: 23
+            position_24: 24
+            position_25: 25

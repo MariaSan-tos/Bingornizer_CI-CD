@@ -1,0 +1,23 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+  processor: "./artillery/loginProcessor.js"
+  plugins:
+    cookie: {}
+
+scenarios:
+  - name: Login e acesso autenticado
+    flow:
+      - post:
+          url: "/user/login"
+          headers:
+            content-type: "application/x-www-form-urlencoded"
+          form:
+            email: "{{ email }}"
+            password: "{{ password }}"
+      - get:
+          url: "/event"
+      - get:
+          url: "/bingoCard?idEvent=1"
