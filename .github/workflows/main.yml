@@ -71,4 +71,4 @@ jobs:
         run: npm run cypress:run
         
       - name: run Pytest
-        run: npm test
+        run: python -m pytest
