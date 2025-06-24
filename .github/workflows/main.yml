@@ -93,7 +93,7 @@ jobs:
       - name: Run Lighthouse CI
         run: |
           npm install -g @lhci/cli
-          lhci autorun
+          lhci autorun --collect.staticDistDir=public
 
       - name: Run Performance Test
         run: npm run test:perf
